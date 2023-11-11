@@ -2,6 +2,7 @@
 import random
 import matplotlib.pyplot as plt
 
+#Making the function roll to setup the win and loss conditions
 def roll():
     dice_1 = random.randint(1,6)
     dice_2 = random.randint(1,6)
@@ -12,19 +13,23 @@ def roll():
         same_num = False
     return same_num
 
+#Some variables to mess around with
 sims = 10000
 max_num_rolls = 1000
 bet = 1
 
+#List to store win probablities and end balance for plotting reference
 win_prob = []
 end_balance = []
 
+#Standard Matplotlib stuff
 graph = plt.figure()
 plt.xlabel("Roll number")
 plt.ylabel("Balance [$]")
 plt.title("Monte Carlo simulation")
 plt.xlim([0, max_num_rolls])
 
+#Monte Carlo Loop
 for i in range(sims):
     balance = [1000]
     num_rolls = [0]
